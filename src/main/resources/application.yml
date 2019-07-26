@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/javadb?serverTimezone=UTC
+    username: javauser
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+
+  h2:
+    console:
+      enabled: true
+      path: /console
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+      cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 460146546217-8e3a1pco6re8b46fq0loq2ni6ganblhc.apps.googleusercontent.com
+            client-secret: 0c2ENGYhkYMvN-dAcZiReUDA
+          facebook:
+            client-id: 355156461812443
+            client-secret: 272db4350bd211ecf7bd555c507b861c
+
+custom:
+  oauth2:
+    kakao:
+      client-id: 8a71dfdfa8532c4cc4862c3edb502d55
+    naver:
+      client-id: 6dbcsD4F6lgLTF_AlgKQ
+      client-secret: ivTNpyvrQB
+
+server:
+  port: 8080
