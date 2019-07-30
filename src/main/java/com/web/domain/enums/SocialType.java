@@ -1,7 +1,7 @@
 package com.web.domain.enums;
 
 public enum SocialType {
-    FACEBOOK("facebook"),
+    //FACEBOOK("facebook"),
     GOOGLE("google"),
     KAKAO("kakao"),
     NAVER("naver");

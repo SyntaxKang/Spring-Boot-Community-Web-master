@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/", "/oauth2/**", "/login/**",  "/css/**", "/images/**", "/js/**", "/console/**").permitAll()
-                .antMatchers("/facebook").hasAuthority(FACEBOOK.getRoleType())
+               // .antMatchers("/facebook").hasAuthority(FACEBOOK.getRoleType())
                 .antMatchers("/google").hasAuthority(GOOGLE.getRoleType())
                 .antMatchers("/kakao").hasAuthority(KAKAO.getRoleType())
                 .antMatchers("/naver").hasAuthority(NAVER.getRoleType())
@@ -73,13 +73,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         registrations.add(CustomOAuth2Provider.KAKAO.getBuilder("kakao")
                 .clientId(kakaoClientId)
                 .clientSecret("test") //필요없는 값인데 null이면 실행이 안되도록 설정되어 있음
-                .jwkSetUri("test") //필요없는 값인데 null이면 실행이 안되도록 설정되어 있음
                 .build());
         //Naver 연동
             registrations.add(CustomOAuth2Provider.NAVER.getBuilder("naver")
                     .clientId(NaverClientId)
                     .clientSecret("ivTNpyvrQB") //필요없는 값인데 null이면 실행이 안되도록 설정되어 있음
-                    .jwkSetUri("test") //필요없는 값인데 null이면 실행이 안되도록 설정되어 있음
                     .build());
             return new InMemoryClientRegistrationRepository(registrations);
 
@@ -97,7 +95,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .scope("email", "profile")
                     .build();
         }
-        if ("facebook".equals(client)) {
+       /* if ("facebook".equals(client)) {
             OAuth2ClientProperties.Registration registration = clientProperties.getRegistration().get("facebook");
             return CommonOAuth2Provider.FACEBOOK.getBuilder(client)
                     .clientId(registration.getClientId())
@@ -105,7 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .userInfoUri("https://graph.facebook.com/me?fields=id,name,email,link")
                     .scope("email")
                     .build();
-        }
+        }*/
         return null;
     }
 }

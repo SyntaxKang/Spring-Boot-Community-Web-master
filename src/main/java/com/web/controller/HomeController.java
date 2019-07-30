@@ -12,4 +12,10 @@ public class HomeController {
         return "home";
     }
 
+
+    @GetMapping("/Test")
+    public String test(){
+        return "jsonTest";
+    }
+
 }
